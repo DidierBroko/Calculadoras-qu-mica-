@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadoras de química gratis: molaridad, pH, dilución, gases y más</title>
+<meta name="description" content="Siete calculadoras de química gratis: molaridad, diluciones, pH, moles, gases ideales, concentraciones y soluciones buffer, con fórmulas y ejemplos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- ANUNCIOS: cuando AdSense te apruebe, pega aquí tu script (cambia ca-pub-XXXX):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<style>
+:root{--bg:#eef3f6;--card:#fff;--ink:#14213d;--muted:#4f5d75;--line:#c9d6df;--accent:#0f8b8d;--accent-ink:#fff;--result:#e3f4f4;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1623;--card:#16233a;--ink:#e8eef6;--muted:#9fb0c7;--line:#2b3d5a;--accent:#3cc4c6;--accent-ink:#0e1623;--result:#10303a;color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding:20px 16px 48px}
+header{padding:28px 0 8px}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;margin:0 0 8px;letter-spacing:-.02em}
+header p{margin:0;color:var(--muted);max-width:58ch}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+nav a{padding:7px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;background:var(--card);font-weight:500;font-size:.9rem}
+nav a:hover{border-color:var(--accent)}
+a:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section.calc,section.info{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;margin:0 0 18px}
+h2{font-size:1.25rem;margin:0 0 4px}
+h3{font-size:1rem;margin:18px 0 4px}
+.formula{font-family:"IBM Plex Mono",monospace;font-size:.9rem;color:var(--muted);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+label{display:block;font-size:.85rem;font-weight:500;margin-bottom:4px}
+input,select{width:100%;padding:10px 12px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px}
+button{margin-top:14px;padding:10px 18px;font:inherit;font-weight:600;background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;cursor:pointer}
+button.sec{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:6px}
+.out{margin-top:14px;padding:12px 14px;border-radius:6px;background:var(--result);font-family:"IBM Plex Mono",monospace;font-size:.93rem;min-height:1.5em;white-space:pre-line}
+.hint{font-size:.82rem;color:var(--muted);margin:8px 0 0}
+.how{font-size:.93rem;color:var(--muted);margin:16px 0 0;max-width:68ch}
+.strip{position:relative;height:16px;border-radius:8px;margin-top:14px;background:linear-gradient(90deg,#d7263d,#f46036,#f2c14e,#7fb800,#0f8b8d,#2e5eaa,#6a3d9a)}
+.strip i{position:absolute;top:-4px;width:4px;height:24px;background:var(--ink);border-radius:2px;left:0;transition:left .25s}
+.strip-l{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-top:4px;font-family:"IBM Plex Mono",monospace}
+.ad{margin:0 0 18px;min-height:90px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--line);border-radius:8px;color:var(--muted);font-size:.8rem}
+details{border-top:1px solid var(--line);padding:10px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted);max-width:68ch}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;font-size:.9rem;width:100%}
+td,th{border-bottom:1px solid var(--line);padding:6px 10px;text-align:left}
+footer{color:var(--muted);font-size:.85rem;margin-top:28px}
+footer a{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.strip i{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Calculadoras de química</h1>
+  <p>Molaridad, diluciones, pH, moles, gases, concentraciones y soluciones buffer. Escribe tus datos y obtén el resultado al instante, sin registrarte.</p>
+</header>
+
+<nav aria-label="Calculadoras y secciones">
+  <a href="#molaridad">Molaridad</a><a href="#dilucion">Dilución</a><a href="#ph">pH</a><a href="#moles">Moles</a>
+  <a href="#gases">Gases</a><a href="#conc">Concentración</a><a href="#buffer">Buffer</a><a href="#faq">Preguntas</a>
+</nav>
+
+<!-- ANUNCIO 1: banner superior (reemplaza por tu bloque de AdSense) -->
+<div class="ad" aria-label="Publicidad">Espacio para anuncio</div>
+
+<section class="calc" id="molaridad">
+  <h2>Calculadora de molaridad</h2>
+  <p class="formula">M = masa ÷ (masa molar × volumen en L)</p>
+  <div class="grid">
+    <div><label for="m-masa">Masa del soluto (g)</label><input id="m-masa" inputmode="decimal" placeholder="5,85"></div>
+    <div><label for="m-mm">Masa molar (g/mol)</label><input id="m-mm" inputmode="decimal" placeholder="58,44"></div>
+    <div><label for="m-vol">Volumen de solución (mL)</label><input id="m-vol" inputmode="decimal" placeholder="500"></div>
+  </div>
+  <button id="m-go">Calcular</button>
+  <div class="out" id="m-out" aria-live="polite"></div>
+  <p class="how">La molaridad indica cuántos moles de soluto hay en cada litro de solución. Divide la masa entre la masa molar para obtener los moles y luego entre el volumen en litros. Ejemplo: 5,85 g de NaCl en 500 mL dan 0,1 mol y una solución 0,2 M.</p>
+</section>
+
+<section class="calc" id="dilucion">
+  <h2>Calculadora de diluciones</h2>
+  <p class="formula">C₁ · V₁ = C₂ · V₂</p>
+  <div class="grid">
+    <div><label for="d-c1">C₁ concentración inicial</label><input id="d-c1" inputmode="decimal"></div>
+    <div><label for="d-v1">V₁ volumen inicial</label><input id="d-v1" inputmode="decimal"></div>
+    <div><label for="d-c2">C₂ concentración final</label><input id="d-c2" inputmode="decimal"></div>
+    <div><label for="d-v2">V₂ volumen final</label><input id="d-v2" inputmode="decimal"></div>
+  </div>
+  <p class="hint">Deja vacío el dato que quieres hallar. Usa las mismas unidades en C₁ y C₂, y en V₁ y V₂.</p>
+  <button id="d-go">Calcular</button><button class="sec" id="d-clear">Limpiar</button>
+  <div class="out" id="d-out" aria-live="polite"></div>
+  <p class="how">Al diluir, la cantidad de soluto no cambia: solo aumenta el volumen. Por eso C₁·V₁ es igual a C₂·V₂. Ejemplo: para preparar 250 mL de HCl 0,1 M desde uno 1 M, necesitas 25 mL de la solución concentrada y completar con agua.</p>
+</section>
+
+<!-- ANUNCIO 2: entre calculadoras -->
+<div class="ad" aria-label="Publicidad">Espacio para anuncio</div>
+
+<section class="calc" id="ph">
+  <h2>Calculadora de pH, pOH y [H⁺]</h2>
+  <p class="formula">pH = −log[H⁺] · pH + pOH = 14 (a 25 °C)</p>
+  <div class="grid">
+    <div><label for="p-ph">pH</label><input id="p-ph" inputmode="decimal" placeholder="3,5"></div>
+    <div><label for="p-h">[H⁺] (mol/L)</label><input id="p-h" inputmode="decimal" placeholder="0,0003"></div>
+  </div>
+  <p class="hint">Escribe solo uno de los dos datos.</p>
+  <button id="p-go">Calcular</button>
+  <div class="strip" aria-hidden="true"><i id="p-mark"></i></div>
+  <div class="strip-l" aria-hidden="true"><span>0</span><span>7</span><span>14</span></div>
+  <div class="out" id="p-out" aria-live="polite"></div>
+  <p class="how">El pH mide la acidez: menor que 7 es ácido, 7 es neutro y mayor que 7 es básico. Cada unidad de pH equivale a un cambio de diez veces en la concentración de H⁺.</p>
+</section>
+
+<section class="calc" id="moles">
+  <h2>Conversión de gramos a moles</h2>
+  <p class="formula">n = masa ÷ masa molar</p>
+  <div class="grid">
+    <div><label for="g-sel">Sustancia común</label>
+      <select id="g-sel"><option value="">Elegir (opcional)</option>
+        <option value="58.44">NaCl · 58,44</option><option value="40.00">NaOH · 40,00</option><option value="56.11">KOH · 56,11</option>
+        <option value="36.46">HCl · 36,46</option><option value="98.08">H₂SO₄ · 98,08</option><option value="100.09">CaCO₃ · 100,09</option>
+        <option value="180.16">Glucosa · 180,16</option><option value="18.02">H₂O · 18,02</option></select></div>
+    <div><label for="g-mm">Masa molar (g/mol)</label><input id="g-mm" inputmode="decimal"></div>
+    <div><label for="g-g">Masa (g)</label><input id="g-g" inputmode="decimal"></div>
+    <div><label for="g-n">Moles (mol)</label><input id="g-n" inputmode="decimal"></div>
+  </div>
+  <p class="hint">Con la masa molar y uno de los dos datos (masa o moles), se calcula el otro.</p>
+  <button id="g-go">Calcular</button>
+  <div class="out" id="g-out" aria-live="polite"></div>
+  <p class="how">El mol es la unidad que conecta la masa de una sustancia con el número de partículas que contiene. La masa molar se obtiene sumando las masas atómicas de la tabla periódica según la fórmula.</p>
+</section>
+
+<section class="calc" id="gases">
+  <h2>Ley de los gases ideales</h2>
+  <p class="formula">P · V = n · R · T con R = 0,08206 atm·L/(mol·K)</p>
+  <div class="grid">
+    <div><label for="gs-p">Presión P (atm)</label><input id="gs-p" inputmode="decimal"></div>
+    <div><label for="gs-v">Volumen V (L)</label><input id="gs-v" inputmode="decimal"></div>
+    <div><label for="gs-n">Moles n (mol)</label><input id="gs-n" inputmode="decimal"></div>
+    <div><label for="gs-t">Temperatura T (K)</label><input id="gs-t" inputmode="decimal"></div>
+  </div>
+  <p class="hint">Deja vacío el dato que quieres hallar. Para pasar de °C a K, suma 273,15.</p>
+  <button id="gs-go">Calcular</button><button class="sec" id="gs-clear">Limpiar</button>
+  <div class="out" id="gs-out" aria-live="polite"></div>
+  <p class="how">Describe el comportamiento de un gas ideal. Ejemplo: 1 mol de gas a 273,15 K y 1 atm ocupa 22,41 L. A presiones muy altas o temperaturas muy bajas los gases reales se desvían de este modelo.</p>
+</section>
+
+<!-- ANUNCIO 3: entre calculadoras -->
+<div class="ad" aria-label="Publicidad">Espacio para anuncio</div>
+
+<section class="calc" id="conc">
+  <h2>Porcentaje y ppm</h2>
+  <p class="formula">% m/m = g soluto ÷ g solución × 100 · % m/v = g soluto ÷ mL solución × 100</p>
+  <div class="grid">
+    <div><label for="c-s">Masa del soluto (g)</label><input id="c-s" inputmode="decimal"></div>
+    <div><label for="c-m">Masa de la solución (g)</label><input id="c-m" inputmode="decimal"></div>
+    <div><label for="c-v">Volumen de la solución (mL)</label><input id="c-v" inputmode="decimal"></div>
+  </div>
+  <p class="hint">Llena la masa del soluto y la masa de la solución, el volumen, o ambos.</p>
+  <button id="c-go">Calcular</button>
+  <div class="out" id="c-out" aria-live="polite"></div>
+  <p class="how">Son formas comunes de expresar concentración en laboratorio y en productos comerciales. Las ppm (partes por millón) se usan para concentraciones muy bajas: 1 ppm equivale a 1 mg de soluto por litro de solución acuosa diluida.</p>
+</section>
+
+<section class="calc" id="buffer">
+  <h2>Solución buffer (Henderson–Hasselbalch)</h2>
+  <p class="formula">pH = pKa + log([A⁻] ÷ [HA])</p>
+  <div class="grid">
+    <div><label for="b-pka">pKa del ácido</label><input id="b-pka" inputmode="decimal" placeholder="4,76"></div>
+    <div><label for="b-a">[A⁻] base conjugada (M)</label><input id="b-a" inputmode="decimal"></div>
+    <div><label for="b-ha">[HA] ácido (M)</label><input id="b-ha" inputmode="decimal"></div>
+  </div>
+  <button id="b-go">Calcular</button>
+  <div class="out" id="b-out" aria-live="polite"></div>
+  <p class="how">Un buffer resiste los cambios de pH al agregar pequeñas cantidades de ácido o base. Funciona mejor cuando la relación [A⁻]/[HA] está entre 0,1 y 10. Ejemplo: el par acetato/ácido acético tiene un pKa de 4,76.</p>
+</section>
+
+<section class="info">
+  <h2>Masas molares de uso frecuente</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Sustancia</th><th>Fórmula</th><th>g/mol</th></tr>
+    <tr><td>Cloruro de sodio</td><td>NaCl</td><td>58,44</td></tr>
+    <tr><td>Hidróxido de sodio</td><td>NaOH</td><td>40,00</td></tr>
+    <tr><td>Ácido clorhídrico</td><td>HCl</td><td>36,46</td></tr>
+    <tr><td>Ácido sulfúrico</td><td>H₂SO₄</td><td>98,08</td></tr>
+    <tr><td>Carbonato de calcio</td><td>CaCO₃</td><td>100,09</td></tr>
+    <tr><td>Glucosa</td><td>C₆H₁₂O₆</td><td>180,16</td></tr>
+  </table></div>
+</section>
+
+<section class="info" id="faq">
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Cuál es la diferencia entre molaridad y molalidad?</summary><p>La molaridad son moles de soluto por litro de solución. La molalidad son moles de soluto por kilogramo de disolvente, y no cambia con la temperatura.</p></details>
+  <details><summary>¿Por qué el pH puede ser menor que 0 o mayor que 14?</summary><p>La escala de 0 a 14 es una referencia práctica. Ácidos o bases muy concentrados pueden salirse de ese rango.</p></details>
+  <details><summary>¿Cómo calculo los moles de un gas en condiciones normales?</summary><p>A 273,15 K y 1 atm, divide el volumen en litros entre 22,41. También puedes usar la calculadora de gases ideales.</p></details>
+  <details><summary>¿Los resultados son exactos?</summary><p>Son cálculos teóricos con soluciones ideales a 25 °C. En el laboratorio verifica siempre con tus instrumentos y tu profesor o manual.</p></details>
+</section>
+
+<section class="info" id="privacidad">
+  <h2>Política de privacidad</h2>
+  <p>Esta página no pide registro y no guarda los datos que escribes en las calculadoras: todo se calcula en tu navegador.</p>
+  <p>Mostramos anuncios de terceros, como Google AdSense. Estos proveedores pueden usar cookies para mostrar anuncios según tus visitas a este y otros sitios. Puedes gestionar o desactivar la publicidad personalizada en <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>.</p>
+  <p>Si tienes dudas sobre esta política, escríbenos desde la sección de contacto.</p>
+</section>
+
+<section class="info" id="contacto">
+  <h2>Contacto</h2>
+  <p>¿Encontraste un error o quieres sugerir una calculadora? Escríbenos a <strong>tucorreo@ejemplo.com</strong>.</p>
+</section>
+
+<footer>
+  <p>Resultados teóricos: soluciones ideales a 25 °C. Verifica siempre antes de usarlos en el laboratorio.</p>
+  <p><a href="#privacidad">Política de privacidad</a> · <a href="#contacto">Contacto</a></p>
+</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const num=id=>{const v=$(id).value.trim().replace(',','.');return v===''?NaN:Number(v)};
+const fmt=x=>{if(!isFinite(x))return '—';const a=Math.abs(x);if(a!==0&&(a<0.001||a>=1e6))return x.toExponential(3).replace('.',',');return Number(x.toPrecision(4)).toString().replace('.',',')};
+const out=(id,t)=>{$(id).textContent=t};
+const clear=(ids,o)=>{ids.forEach(i=>$(i).value='');out(o,'')};
+// Resuelve "a·b = c·d" tipo: devuelve [índice vacío, valores] o null
+const oneEmpty=ids=>{const v=ids.map(num);const e=v.map((x,i)=>isNaN(x)?i:-1).filter(i=>i>=0);return e.length===1&&v.every(x=>isNaN(x)||x>0)?[e[0],v]:null};
+
+$('m-go').onclick=()=>{const g=num('m-masa'),mm=num('m-mm'),ml=num('m-vol');
+  if(![g,mm,ml].every(v=>v>0))return out('m-out','Completa los tres datos con valores mayores que cero.');
+  const mol=g/mm;out('m-out',`Moles de soluto: ${fmt(mol)} mol\nMolaridad: ${fmt(mol/(ml/1000))} mol/L`)};
+
+$('d-go').onclick=()=>{const r=oneEmpty(['d-c1','d-v1','d-c2','d-v2']);
+  if(!r)return out('d-out','Deja exactamente un campo vacío y usa valores mayores que cero.');
+  const [i,[c1,v1,c2,v2]]=r;const res=[c2*v2/v1,c2*v2/c1,c1*v1/v2,c1*v1/c2][i];
+  let t=`${['C₁','V₁','C₂','V₂'][i]} = ${fmt(res)}`;
+  if(i===3){t=res<v1?'Resultado inválido: para diluir, C₂ debe ser menor que C₁.':t+`\nAgua a añadir: ${fmt(res-v1)} (mismas unidades de volumen)`}
+  out('d-out',t)};
+$('d-clear').onclick=()=>clear(['d-c1','d-v1','d-c2','d-v2'],'d-out');
+
+$('p-go').onclick=()=>{let ph=num('p-ph'),h=num('p-h');
+  if(!isNaN(ph)&&isNaN(h))h=Math.pow(10,-ph);else if(isNaN(ph)&&h>0)ph=-Math.log10(h);
+  else return out('p-out','Escribe un pH o una [H⁺] válida (solo uno).');
+  const poh=14-ph,tipo=ph<6.95?'ácida':ph>7.05?'básica':'neutra';
+  out('p-out',`pH: ${fmt(ph)}   pOH: ${fmt(poh)}\n[H⁺]: ${fmt(h)} mol/L\n[OH⁻]: ${fmt(Math.pow(10,-poh))} mol/L\nSolución ${tipo}`);
+  $('p-mark').style.left=`calc(${Math.min(Math.max(ph,0),14)/14*100}% - 2px)`};
+
+$('g-sel').onchange=()=>{$('g-mm').value=$('g-sel').value.replace('.',',')};
+$('g-go').onclick=()=>{const mm=num('g-mm'),g=num('g-g'),n=num('g-n');
+  if(!(mm>0))return out('g-out','Escribe la masa molar.');
+  if(g>0&&isNaN(n))out('g-out',`${fmt(g)} g = ${fmt(g/mm)} mol`);
+  else if(n>0&&isNaN(g))out('g-out',`${fmt(n)} mol = ${fmt(n*mm)} g`);
+  else out('g-out','Llena solo uno: masa o moles.')};
+
+const R=0.082057;
+$('gs-go').onclick=()=>{const r=oneEmpty(['gs-p','gs-v','gs-n','gs-t']);
+  if(!r)return out('gs-out','Deja exactamente un campo vacío y usa valores mayores que cero.');
+  const [i,[p,v,n,t]]=r;const res=[n*R*t/v,n*R*t/p,p*v/(R*t),p*v/(n*R)][i];
+  out('gs-out',`${['P','V','n','T'][i]} = ${fmt(res)} ${['atm','L','mol','K'][i]}`)};
+$('gs-clear').onclick=()=>clear(['gs-p','gs-v','gs-n','gs-t'],'gs-out');
+
+$('c-go').onclick=()=>{const s=num('c-s'),m=num('c-m'),v=num('c-v');
+  if(!(s>0)||!(m>0||v>0))return out('c-out','Escribe la masa del soluto y la masa o el volumen de la solución.');
+  const l=[];if(m>0)l.push(`% m/m: ${fmt(s/m*100)} %`);
+  if(v>0)l.push(`% m/v: ${fmt(s/v*100)} %`,`ppm (mg/L): ${fmt(s*1000/(v/1000))}`);
+  out('c-out',l.join('\n'))};
+
+$('b-go').onclick=()=>{const pka=num('b-pka'),a=num('b-a'),ha=num('b-ha');
+  if(isNaN(pka)||!(a>0)||!(ha>0))return out('b-out','Completa pKa, [A⁻] y [HA] con valores válidos.');
+  const ph=pka+Math.log10(a/ha),ra=a/ha;
+  out('b-out',`pH del buffer: ${fmt(ph)}\nRelación [A⁻]/[HA]: ${fmt(ra)}`+(ra<0.1||ra>10?'\nAviso: fuera de 0,1 a 10 el buffer es poco efectivo.':''))};
+</script>
+</body>
+</html>
